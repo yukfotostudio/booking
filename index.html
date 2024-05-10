@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Yukfoto.Studio</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6522280279660810"
+     crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #8B4513;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        .submit-button-green {
+            background-color: #4CAF50 !important;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .notice {
+            background-color: #f2f2f2;
+            border-left: 6px solid #4CAF50;
+            margin-bottom: 20px;
+            padding: 10px;
+            text-align: center; /* Tengah */
+        }
+
+        .notice p {
+            margin: 0;
+        }
+
+        .instagram-link {
+            text-align: center; /* Tengah */
+            margin-top: 10px; /* Atur jarak dari pesan pop-up */
+        }
+
+        .instagram-link a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .instagram-link a:hover {
+            text-decoration: underline;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            color: black;
+            background-color: #8B4513;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+    <script>
+        window.onload = function() {
+            alert("Selamat datang di Yukfoto.Studio! Silakan isi formulir booking di bawah ini untuk memesan sesi foto Anda. Klik di sini untuk mengikuti kami di Instagram.");
+        };
+
+        function validateForm() {
+            var fullname = document.getElementById("fullname").value;
+            var phone = document.getElementById("phone").value;
+            var photosession = document.getElementById("photosession").value;
+            var bookingdate = document.getElementById("bookingdate").value;
+            var bookingtime = document.getElementById("bookingtime").value;
+            var additionalmessage = document.getElementById("additionalmessage").value;
+
+            if (fullname === "" || phone === "" || photosession === "" || bookingdate === "" || bookingtime === "") {
+                alert("Harap isi semua bidang sebelum mengirim booking.");
+            } else {
+                sendWhatsApp(fullname, phone, photosession, bookingdate, bookingtime, additionalmessage);
+            }
+        }
+
+        function sendWhatsApp(fullname, phone, photosession, bookingdate, bookingtime, additionalmessage) {
+            var message = "Halo, saya ingin melakukan booking di Yukfoto.Studio dengan detail sebagai berikut:\n\n";
+            message += "Nama Lengkap: " + fullname + "\n";
+            message += "Nomor Telepon: " + phone + "\n";
+            message += "Jenis Sesi Foto: " + photosession + "\n";
+            message += "Tanggal Booking: " + bookingdate + "\n";
+            message += "Jam Booking: " + bookingtime + "\n";
+            message += "Pesan Tambahan: " + additionalmessage;
+
+            var whatsappLink = "https://wa.me/628159018262?text=" + encodeURIComponent(message);
+            window.open(whatsappLink, '_blank');
+
+            document.getElementById("bookingForm").reset();
+            document.querySelector('input[type="button"]').classList.add("submit-button-green");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Booking Yukfoto.Studio</h1>
+        <div class="notice">
+            <p><strong>PERHATIAN:</strong></p>
+            <p>BOOKING WAJIB UANG MUKA 10K</p>
+            <p>YANG SUDAH BOOKING KAMI PRIORITASKAN</p>
+            <p>E-Wallet DANA: 0815-9018-262 A/N Mulyadi</p>
+            <p>E-Wallet / Bank lain-nya Coming Soon</p>
+        </div>
+        
+        <form id="bookingForm">
+            <div class="form-group">
+                <label for="fullname">Nama Lengkap:</label>
+                <input type="text" id="fullname" name="fullname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Nomor Telepon:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="photosession">Jenis Sesi Foto:</label>
+                <select id="photosession" name="photosession" required>
+                    <option value="">Pilih Jenis Sesi Foto</option>
+                    <option value="Self Foto">Self Foto</option>
+                    <option value="Self Foto Box">Self Foto Box</option>
+                    <option value="Preweeding">Preweeding</option>
+                    <option value="Graduation">Graduation</option>
+                    <option value="Family Shoot">Family Shoot</option>
+                    <option value="Maternity">Maternity</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bookingdate">Tanggal Booking:</label>
+                <input type="date" id="bookingdate" name="bookingdate" min="2024-05-02" required>
+            </div>
+
+            <div class="form-group">
+                <label for="bookingtime">Jam Booking:</label>
+                <select id="bookingtime" name="bookingtime" required>
+                    <option value="">Pilih Jam Booking</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                    <option value="19:00">19:00</option>
+                    <option value="20:00">20:00</option>
+                    <option value="21:00">21:00</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalmessage">Pesan Tambahan:</label>
+                <textarea id="additionalmessage" name="additionalmessage" rows="4"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="button" value="Kirim Booking" onclick="validateForm()">
+            </div>
+        </form>
+    </div>
+
+    <div class="copyright">
+        Copyright 2024 Design by Ripki
+    </div>
+</body>
+</html>
