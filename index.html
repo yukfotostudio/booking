@@ -111,12 +111,93 @@
             padding: 10px;
             border-radius: 5px;
         }
+
+        /* Pop-up Styles */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #000;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            color: #fff;
+        }
+
+        .popup-content h2 {
+            margin: 0 0 10px;
+        }
+
+        .popup-content p {
+            margin: 10px 0;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup-close:hover {
+            background-color: #f2f2f2;
+        }
     </style>
 
     <script>
         window.onload = function() {
-            alert("Selamat datang di Yukfoto.Studio! Silakan isi formulir booking di bawah ini untuk memesan sesi foto Anda.");
+            showPopup();
         };
+
+        function showPopup() {
+            var popupOverlay = document.createElement('div');
+            popupOverlay.classList.add('popup-overlay');
+
+            var popupContent = document.createElement('div');
+            popupContent.classList.add('popup-content');
+
+            var closeButton = document.createElement('button');
+            closeButton.classList.add('popup-close');
+            closeButton.innerHTML = 'Close';
+            closeButton.onclick = function() {
+                document.body.removeChild(popupOverlay);
+            };
+
+            var popupHeader = document.createElement('h2');
+            popupHeader.innerText = 'Selamat datang di Yukfoto.Studio!';
+
+            var popupMessage = document.createElement('p');
+            popupMessage.innerText = 'Silakan isi formulir booking di bawah ini untuk memesan sesi foto Anda.';
+
+            var instagramLink = document.createElement('p');
+            instagramLink.classList.add('instagram-link');
+            instagramLink.innerHTML = '<a href="https://instagram.com/yukfoto.studio" target="_blank" style="color: #fff; text-decoration: underline;">Instagram Kami</a>';
+
+            popupContent.appendChild(closeButton);
+            popupContent.appendChild(popupHeader);
+            popupContent.appendChild(popupMessage);
+            popupContent.appendChild(instagramLink);
+            popupOverlay.appendChild(popupContent);
+            document.body.appendChild(popupOverlay);
+        }
 
         function validateForm() {
             var fullname = document.getElementById("fullname").value;
@@ -176,12 +257,12 @@
                 <label for="photosession">Jenis Sesi Foto:</label>
                 <select id="photosession" name="photosession" required>
                     <option value="">Pilih Jenis Sesi Foto</option>
-                    <option value="Self Foto">Self Foto</option>
-                    <option value="Self Foto Box">Self Foto Box</option>
-                    <option value="Preweeding">Preweeding</option>
-                    <option value="Graduation">Graduation</option>
-                    <option value="Family Shoot">Family Shoot</option>
-                    <option value="Maternity">Maternity</option>
+                    <option value="SELF FOTO">SELF FOTO</option>
+                    <option value="SELF FOTO BOX">SELF FOTO BOX</option>
+                    <option value="PREWEDDING">PREWEDDING</option>
+                    <option value="GRADUATION">GRADUATION</option>
+                    <option value="FAMILY SHOOT">FAMILY SHOOT</option>
+                    <option value="MATERNITY">MATERNITY</option>
                 </select>
             </div>
 
